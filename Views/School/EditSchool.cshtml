@@ -12,67 +12,93 @@
         @using (@Html.BeginForm("Add", "School", FormMethod.Post, new { @id = "addSchoolForm", @class = "addSchool" }))
         {
             @Html.AntiForgeryToken()
-            <form>
-                <div class="form-group row mb-2">
-                    @Html.LabelFor(model => model.SchoolName, htmlAttributes: new { @class = "required" })
-                    @Html.TextBoxFor(model => model.SchoolName, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.SchoolName, "", new { @class = "text-danger" })
-
+        <form>
+            <div class="form-group row mb-2">
+                @Html.LabelFor(model => model.SchoolName, htmlAttributes: new { @class = "required" })
+                @Html.TextBoxFor(model => model.SchoolName, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SchoolName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group row mb-2">
+                @Html.LabelFor(model => model.SchoolDescription, htmlAttributes: new { @class = "required" })
+                @Html.TextAreaFor(model => model.SchoolDescription, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SchoolDescription, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group row mb-2">
+                @Html.LabelFor(model => model.SchoolAddress, htmlAttributes: new { @class = "required" })
+                @Html.TextBoxFor(model => model.SchoolAddress, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SchoolAddress, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group row mb-2">
+                @Html.LabelFor(model => model.SchoolCity, htmlAttributes: new { @class = "required" })
+                @Html.TextBoxFor(model => model.SchoolCity, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SchoolCity, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group row mb-2">
+                @Html.LabelFor(model => model.SchoolState, htmlAttributes: new { @class = "required" })
+                @Html.TextBoxFor(model => model.SchoolState, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SchoolState, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group row mb-2">
+                @Html.LabelFor(model => model.SchoolEmail, htmlAttributes: new { @class = "required" })
+                @Html.TextBoxFor(model => model.SchoolEmail, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SchoolEmail, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group row mb-2">
+                @Html.LabelFor(model => model.PrincipalName, htmlAttributes: new { @class = "required" })
+                @Html.TextBoxFor(model => model.PrincipalName, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PrincipalName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-6 pl-0">
+                    @Html.LabelFor(model => model.YearFounded, htmlAttributes: new { @class = "required" })
+                    @Html.TextBoxFor(model => model.YearFounded, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.YearFounded, "", new { @class = "text-danger" })
                 </div>
-                <div class="form-group row mb-2">
-                    @Html.LabelFor(model => model.SchoolAddress, htmlAttributes: new { @class = "required" })
-                    @Html.TextBoxFor(model => model.SchoolAddress, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.SchoolAddress, "", new { @class = "text-danger" })
+                <div class="col-6 pr-0">
+                    @Html.LabelFor(model => model.AgeRange, htmlAttributes: new { @class = "required" })
+                    @Html.TextBoxFor(model => model.AgeRange, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AgeRange, "", new { @class = "text-danger" })
                 </div>
-                <div class="form-group row mb-2">
-                    @Html.LabelFor(model => model.SchoolCity, htmlAttributes: new { @class = "required" })
-                    @Html.TextBoxFor(model => model.SchoolCity, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.SchoolCity, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group row mb-2">
+                @Html.LabelFor(model => model.SchoolPhone, htmlAttributes: new { @class = "required" })
+                @Html.TextBoxFor(model => model.SchoolPhone, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SchoolPhone, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group row mb-2">
+                @Html.LabelFor(model => model.SchoolPhone2, htmlAttributes: new { @class = "" })
+                @Html.TextBoxFor(model => model.SchoolPhone2, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SchoolPhone2, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group row mb-2">
+                <div class="col-6 pl-0">
+                    @Html.LabelFor(model => model.NumberOfStudents, htmlAttributes: new { @class = "" })
+                    @Html.TextBoxFor(model => model.NumberOfStudents, htmlAttributes: new { @class = "form-control" })
                 </div>
-                <div class="form-group row mb-2">
-                    @Html.LabelFor(model => model.SchoolState, htmlAttributes: new { @class = "required" })
-                    @Html.TextBoxFor(model => model.SchoolState, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.SchoolState, "", new { @class = "text-danger" })
+                <div class="col-6 pr-0">
+                    @Html.LabelFor(model => model.NumberOfTeachers, htmlAttributes: new { @class = "" })
+                    @Html.TextBoxFor(model => model.NumberOfTeachers, htmlAttributes: new { @class = "form-control" })
                 </div>
-                <div class="form-group row mb-2">
-                    @Html.LabelFor(model => model.SchoolEmail, htmlAttributes: new { @class = "required" })
-                    @Html.TextBoxFor(model => model.SchoolEmail, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.SchoolEmail, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group row mb-2">
+                @Html.LabelFor(model => model.SchoolWeb, htmlAttributes: new { @class = "" })
+                @Html.TextBoxFor(model => model.SchoolWeb, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SchoolWeb, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group row mb-2">
+                <div class="form-check">
+                    @Html.CheckBoxFor(model => model.IsReligious, htmlAttributes: new { @class = "form-check-input" })
+                    @Html.LabelFor(model => model.IsReligious, htmlAttributes: new { @class = "form-check-label" })
                 </div>
-                <div class="form-group row mb-2">
-                    @Html.LabelFor(model => model.PrincipalName, htmlAttributes: new { @class = "required" })
-                    @Html.TextBoxFor(model => model.PrincipalName, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.PrincipalName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group row mb-2">
+                <div class="form-check">
+                    @Html.CheckBoxFor(model => model.IsBoarding, htmlAttributes: new { @class = "form-check-input" })
+                    @Html.LabelFor(model => model.IsBoarding, htmlAttributes: new { @class = "form-check-label" })
                 </div>
-                <div class="form-group row mb-2">
-                    @Html.LabelFor(model => model.SchoolPhone, htmlAttributes: new { @class = "required" })
-                    @Html.TextBoxFor(model => model.SchoolPhone, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.SchoolPhone, "", new { @class = "text-danger" })
-                </div>
-                <div class="form-group row mb-2">
-                    @Html.LabelFor(model => model.SchoolPhone2, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.SchoolPhone2, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.SchoolPhone2, "", new { @class = "text-danger" })
-                </div>
-                <div class="form-group row mb-2">
-                    @Html.LabelFor(model => model.SchoolWeb, htmlAttributes: new { @class = "" })
-                    @Html.TextBoxFor(model => model.SchoolWeb, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.SchoolWeb, "", new { @class = "text-danger" })
-                </div>
-                <div class="form-group row mb-2">
-                    <div class="form-check">
-                        @Html.CheckBoxFor(model => model.IsReligious, htmlAttributes: new { @class = "form-check-input" })
-                        @Html.LabelFor(model => model.IsReligious, htmlAttributes: new { @class = "form-check-label" })
-                    </div>
-                </div>
-                <div class="form-group row mb-2">
-                    <div class="form-check">
-                        @Html.CheckBoxFor(model => model.IsBoarding, htmlAttributes: new { @class = "form-check-input" })
-                        @Html.LabelFor(model => model.IsBoarding, htmlAttributes: new { @class = "form-check-label" })
-                    </div>
-                </div>
-                <div class="form-group row justify-content-end"><button class="btn btn-lg btn-danger" id="addSchool">Submit</button></div>
-            </form>
+            </div>
+            <div class="form-group row justify-content-end"><button class="btn btn-lg btn-danger" id="addSchool">Submit</button></div>
+        </form>
         }
     </div>
 </div>

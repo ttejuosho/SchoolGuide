@@ -76,6 +76,7 @@ namespace SchoolGuide
             AddSchoolVM model = new AddSchoolVM
             {
                 SchoolName = dbModel.SchoolName,
+                SchoolDescription = dbModel.SchoolDescription,
                 SchoolAddress = dbModel.SchoolAddress,
                 SchoolCity = dbModel.SchoolCity,
                 SchoolState = dbModel.SchoolState,
@@ -87,7 +88,11 @@ namespace SchoolGuide
                 SchoolId = dbModel.SchoolId,
                 ProfileImagePath = dbModel.ProfileImagePath,
                 IsBoarding = dbModel.IsBoarding,
-                IsReligious = dbModel.IsReligious
+                IsReligious = dbModel.IsReligious,
+                AgeRange = dbModel.AgeRange,
+                NumberOfStudents = dbModel.NumberOfStudents,
+                NumberOfTeachers = dbModel.NumberOfTeachers,
+                YearFounded = dbModel.YearFounded,
             };
 
             return View("AddSchool", model);
@@ -128,6 +133,7 @@ namespace SchoolGuide
                         {
                             SchoolId = modelData.SchoolId,
                             SchoolName = modelData.SchoolName,
+                            SchoolDescription = modelData.SchoolDescription,
                             SchoolAddress = modelData.SchoolAddress,
                             SchoolCity = modelData.SchoolCity,
                             SchoolState = modelData.SchoolState,
@@ -138,7 +144,12 @@ namespace SchoolGuide
                             SchoolWeb = modelData.SchoolWeb,
                             IsBoarding = modelData.IsBoarding,
                             IsReligious = modelData.IsReligious,
-                            ProfileImagePath = !string.IsNullOrWhiteSpace(fileName) ? fileName : _schoolActions.GetSchoolProfileImagePath(modelData.SchoolId),
+                            AgeRange = modelData.AgeRange,
+                            NumberOfStudents = modelData.NumberOfStudents,
+                            NumberOfTeachers = modelData.NumberOfTeachers,
+                            YearFounded = modelData.YearFounded,
+                            ProfileImagePath = modelData.SchoolId > 0 ? _schoolActions.GetSchoolProfileImagePath(modelData.SchoolId) : fileName
+                            //ProfileImagePath = !string.IsNullOrWhiteSpace(fileName) ? fileName : _schoolActions.GetSchoolProfileImagePath(modelData.SchoolId),
                         };
 
                         var res = _schoolActions.SaveSchool(schoolData);

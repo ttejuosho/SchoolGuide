@@ -15,6 +15,10 @@ namespace SchoolGuide
         [Required(ErrorMessage = "School Name is required.")]
         public string SchoolName { get; set; }
 
+        [Display(Name = "School Description")]
+        [Required(ErrorMessage = "Please provide a short description of your school")]
+        public string SchoolDescription { get; set; }
+
         [Display(Name = "School Address")]
         [Required(ErrorMessage = "Address is required.")]
         public string SchoolAddress { get; set; }
@@ -58,10 +62,22 @@ namespace SchoolGuide
         [Display(Name = "Profile Image")]
         public IFormFile ProfileImage { get; set; }
 
-        public string Established { get; set; }
+        [Display(Name = "Year Founded")]
+        [Required(ErrorMessage = "Year Founded is required. Ex. 1923")]
+        public string YearFounded { get; set; }
+
+        [Display(Name = "Age Range")]
+        [Required(ErrorMessage = "Age Range of students is required. Ex. 3 - 17")]
+        public string AgeRange { get; set; }
+
         public bool GovtApproved { get; set; }
+
+        [Display(Name = "Number Of Students")]
         public int NumberOfStudents { get; set; }
+
+        [Display(Name = "Number Of Teachers")]
         public int NumberOfTeachers { get; set; }
+
         public int NumberOfCampuses { get; set; }
 
     }
