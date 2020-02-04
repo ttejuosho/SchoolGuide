@@ -1,0 +1,37 @@
+﻿@model SigninModel
+
+@{
+    ViewData["Title"] = "SignIn";
+}
+
+<div class="row justify-content-center">
+    <div class="col-6">
+        @using (@Html.BeginForm("SignIn", "Auth", FormMethod.Post, new { enctype = "multipart/form-data", @id = "signinForm", @class = "signin" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group row mb-3">
+                <h2 class="text-info">Sign In</h2>
+            </div>
+            <div class="form-group row mb-2">
+                <label asp-for="Email" class="required"></label>
+                <input asp-for="Email" class="form-control border-info" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group row mb-2">
+                <label asp-for="Password" class="required"></label>
+                <input asp-for="Password" class="form-control border-info" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group row mb-2 mt-3">
+                <div class="form-check">
+                    <input asp-for="RememberMe" type="checkbox" class="form-check-input" />
+                    <label asp-for="RememberMe" class="form-check-label"></label>
+                </div>
+            </div>
+            <div class="form-group row justify-content-end">
+                <button class="btn btn-outline-info" id="signinBtn">Sign In</button>
+            </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,53 @@
+﻿@model List<SchoolGuide.School>
+@{
+    ViewBag.Title = "School Guide Home";
+}
+<div class="row justify-content-center">
+    <div class="col-8 mt-3">
+        <h1 class="display-4 text-center"><img src="~/img/schoogleLogo.png" style="width: 250px;" /></h1>
+        @using (@Html.BeginForm("Index", "Home", FormMethod.Get, new { @id = "searchSchoolForm", @class = "searchSchool" }))
+        {
+            @Html.AntiForgeryToken()
+            <form>
+                <div class="input-group mb-3">
+                    @Html.TextBox("SearchWord", null, new { @class = "form-control border-primary", @placeholder = "Enter school name, city or state" })
+
+                    @*<input type="text" class="form-control border-primary" placeholder="Enter school name" aria-label="School Name" aria-describedby="Enter school name">*@
+                    <div class="input-group-append">
+                        <button class="btn btn-danger" type="submit" id="searchSchool">Search</button>
+                    </div>
+                </div>
+            </form>
+        }
+    </div>
+</div>
+
+@if (Model != null)
+{
+    <div class="row justify-content-center">
+        <div class="col-10">
+            @foreach (var school in Model)
+            {
+                var schoolImage = "~/img/" + (school.ProfileImagePath != null ? school.ProfileImagePath : "400X400.png");
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <a href="~/School/@school.SchoolId"><img src="@schoolImage" class="card-img" alt="school image" asp-append-version="true"></a>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="~/School/@school.SchoolId">@school.SchoolName</a></h5>
+                                <p class="card-text"><span class="font-weight-bold">Address</span>: @school.SchoolAddress @school.SchoolCity @school.SchoolState</p>
+                                <p class="card-text"><span class="font-weight-bold">Phone</span>: @school.SchoolPhone</p>
+                                <p class="card-text"><span class="font-weight-bold">Email Address</span>: @school.SchoolEmail</p>
+                                <p class="card-text"><span class="font-weight-bold">Website</span>: @school.SchoolWeb</p>
+                                <p class="card-text"><span class="font-weight-bold">Principal Name</span>: @school.PrincipalName</p>
+                                <p class="card-text"><span class="font-weight-bold">Established</span>: @school.Established</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
