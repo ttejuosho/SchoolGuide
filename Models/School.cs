@@ -43,6 +43,7 @@ namespace SchoolGuide
         public string SchoolPhone { get; set; }
 
         [Display(Name = "Phone Number 2")]
+        [DataType(DataType.PhoneNumber)]
         public string SchoolPhone2 { get; set; }
 
         [Display(Name = "Email Address")]
@@ -73,10 +74,8 @@ namespace SchoolGuide
 
         public bool Featured { get; set; }
 
-        [Display(Name = "Number Of Students")]
         public int NumberOfStudents { get; set; }
 
-        [Display(Name = "Number Of Teachers")]
         public int NumberOfTeachers { get; set; }
 
         public int NumberOfCampuses { get; set; }

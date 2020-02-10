@@ -116,9 +116,14 @@ namespace SchoolGuide
                 {
                     if (modelData != null)
                     {
-                        string fileName = null;
+
+
+                        if (modelData.ProfileImagePath == null && modelData.SchoolId > 0)
+                            modelData.ProfileImagePath = _schoolActions.GetSchoolProfileImagePath(modelData.SchoolId);
+
                         if (modelData.ProfileImage != null)
                         {
+                            string fileName = null;
                             string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "img");
                             fileName = Guid.NewGuid().ToString() + "_" + modelData.ProfileImage.FileName;
                             string filePath = Path.Combine(uploadsFolder, fileName);
@@ -127,8 +132,9 @@ namespace SchoolGuide
                             {
                                 modelData.ProfileImage.CopyTo(fileStream);
                             }
+                            modelData.ProfileImagePath = fileName;
                         }
-
+ 
                         School schoolData = new School
                         {
                             SchoolId = modelData.SchoolId,
@@ -148,7 +154,7 @@ namespace SchoolGuide
                             NumberOfStudents = modelData.NumberOfStudents,
                             NumberOfTeachers = modelData.NumberOfTeachers,
                             YearFounded = modelData.YearFounded,
-                            ProfileImagePath = modelData.SchoolId > 0 ? _schoolActions.GetSchoolProfileImagePath(modelData.SchoolId) : fileName
+                            ProfileImagePath = modelData.ProfileImagePath
                             //ProfileImagePath = !string.IsNullOrWhiteSpace(fileName) ? fileName : _schoolActions.GetSchoolProfileImagePath(modelData.SchoolId),
                         };
 

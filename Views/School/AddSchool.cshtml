@@ -12,17 +12,19 @@
     {
         <h1 class="text-center display-4">@Model.SchoolName</h1>
     }
-
 </div>
 
 <div class="row justify-content-center">
     <div class="col-6">
-        @using (@Html.BeginForm("Add", "School", FormMethod.Post, new { enctype="multipart/form-data", @id = "addSchoolForm", @class = "addSchool"}))
+        @using (@Html.BeginForm("Add", "School", FormMethod.Post, new { enctype = "multipart/form-data", @id = "addSchoolForm", @class = "addSchool" }))
         {
             @Html.AntiForgeryToken()
         <form>
             @if (Model != null)
-            {@Html.HiddenFor(model => model.SchoolId, htmlAttributes: new { @class = "" })}
+            {
+                @Html.HiddenFor(model => model.SchoolId, htmlAttributes: new { @class = "" })
+                @Html.HiddenFor(model => model.ProfileImagePath, htmlAttributes: new { @class = "" })
+            }
             <div class="form-group row mb-2">
                 @Html.LabelFor(model => model.SchoolName, htmlAttributes: new { @class = "required" })
                 @Html.TextBoxFor(model => model.SchoolName, htmlAttributes: new { @class = "form-control" })
@@ -73,7 +75,7 @@
                     @Html.ValidationMessageFor(model => model.AgeRange, "", new { @class = "text-danger" })
                 </div>
             </div>
-            
+
             <div class="form-group row mb-2">
                 <div class="col-6 pl-0">
                     @Html.LabelFor(model => model.SchoolPhone, htmlAttributes: new { @class = "required" })
@@ -83,18 +85,21 @@
                 <div class="col-6 pr-0">
                     @Html.LabelFor(model => model.SchoolPhone2, htmlAttributes: new { @class = "" })
                     @Html.TextBoxFor(model => model.SchoolPhone2, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.SchoolPhone2, "", new { @class = "text-danger" })
                 </div>
             </div>
-            
+
             <div class="form-group row mb-2">
                 <div class="col-6 pl-0">
-                    @Html.LabelFor(model => model.NumberOfStudents, htmlAttributes: new { @class = "" })
+                    @Html.LabelFor(model => model.NumberOfStudents, htmlAttributes: new { @class = "required" })
                     @Html.TextBoxFor(model => model.NumberOfStudents, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.NumberOfStudents, "", new { @class = "text-danger" })
+
                 </div>
                 <div class="col-6 pr-0">
-                    @Html.LabelFor(model => model.NumberOfTeachers, htmlAttributes: new { @class = "" })
+                    @Html.LabelFor(model => model.NumberOfTeachers, htmlAttributes: new { @class = "required" })
                     @Html.TextBoxFor(model => model.NumberOfTeachers, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.NumberOfTeachers, "", new { @class = "text-danger" })
+
                 </div>
             </div>
             <div class="form-group row mb-2">
