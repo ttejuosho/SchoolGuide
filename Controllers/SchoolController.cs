@@ -16,9 +16,9 @@ namespace SchoolGuide
     public class SchoolController : Controller
     {
         private readonly ISchoolActions _schoolActions;
-        private readonly IHostingEnvironment hostingEnvironment;
+        private readonly IWebHostEnvironment hostingEnvironment;
 
-        public SchoolController(ISchoolActions schoolActions, IHostingEnvironment hostingEnvironment)
+        public SchoolController(ISchoolActions schoolActions, IWebHostEnvironment hostingEnvironment)
         {
             _schoolActions = schoolActions;
             this.hostingEnvironment = hostingEnvironment;
